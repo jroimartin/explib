@@ -1,3 +1,5 @@
+"""Python package for CTFs and exploit development."""
+
 # Encoding
 from explib.encoding.binary import *
 

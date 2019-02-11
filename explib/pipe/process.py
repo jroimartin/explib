@@ -24,17 +24,17 @@ class Process(Pipe):
 
     def recv(self, bufsize):
         rlist, _, _ = select.select([self.proc.stdout], [], [], self.timeout)
-        if rlist:
-            return os.read(self.proc.stdout.fileno(), bufsize)
-        else:
+        if not rlist:
             raise TimeoutError
+
+        return os.read(self.proc.stdout.fileno(), bufsize)
 
     def send(self, data):
         _, wlist, _ = select.select([], [self.proc.stdin], [], self.timeout)
-        if wlist:
-            return os.write(self.proc.stdin.fileno(), data)
-        else:
+        if not wlist:
             raise TimeoutError
+
+        return os.write(self.proc.stdin.fileno(), data)
 
     def close(self):
         for procfile in [self.proc.stdin, self.proc.stdout, self.proc.stderr]:

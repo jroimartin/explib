@@ -41,35 +41,43 @@ def _genfmt(size, endian, sign):
 
     return fmt
 
+
 def pack(value, size=64, endian='little', sign=False):
     """Packs arbitrary size integer."""
     fmt = _genfmt(size, endian, sign)
     return struct.pack(fmt, value)
+
 
 def unpack(buf, size=64, endian='little', sign=False):
     """Unpacks arbitrary size integer."""
     fmt = _genfmt(size, endian, sign)
     return struct.unpack(fmt, buf)[0]
 
+
 def p16(value, endian='little', sign=False):
     """Packs 16-bit integer."""
     return pack(value, size=16, endian=endian, sign=sign)
+
 
 def u16(buf, endian='little', sign=False):
     """Unpacks 16-bit integer."""
     return unpack(buf, size=16, endian=endian, sign=sign)
 
+
 def p32(value, endian='little', sign=False):
     """Packs 32-bit integer."""
     return pack(value, size=32, endian=endian, sign=sign)
+
 
 def u32(buf, endian='little', sign=False):
     """Unpacks 32-bit integer."""
     return unpack(buf, size=32, endian=endian, sign=sign)
 
+
 def p64(value, endian='little', sign=False):
     """Packs 64-bit integer."""
     return pack(value, size=64, endian=endian, sign=sign)
+
 
 def u64(buf, endian='little', sign=False):
     """Unpacks 64-bit integer."""
