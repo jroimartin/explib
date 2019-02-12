@@ -6,7 +6,7 @@ Heavily based on [pwntools](http://pwntools.com).
 
 ## Installation
 
-For development purposes, execute the following command within a venv:
+For development purposes, execute the following command from a venv:
 
 ```
 $ pip install -e .
