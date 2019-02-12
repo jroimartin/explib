@@ -15,5 +15,5 @@ $ pip install -e .
 ## Documentation
 
 ```
-$ pydoc explib
+$ python -m pydoc explib
 ```
